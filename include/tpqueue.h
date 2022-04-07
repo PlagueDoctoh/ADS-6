@@ -14,10 +14,11 @@ class TPQueue {
       if (last - first >= size) {
         throw std::string("Full!");
       } else {
-          while ((last >= first) && (arr[(last + 1) % size].prior < x.prior)) {
-              arr[(last + 2) % size] = arr[(last + 1) % size];
+          int vrem = last++;
+          while ((last >= first) && (arr[vrem % size].prior < x.prior)) {
+              arr[(++vrem) % size] = arr[(++vrem) % size];
           }
-          arr[(last + 2) % size] = x;
+          arr[(++vrem) % size] = x;
       }
     }
     T pop() {
