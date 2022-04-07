@@ -19,7 +19,7 @@ class TPQueue {
               arr[(vrem + 1) % size] = arr[vrem % size];
               --vrem;
           }
-          arr[vrem % size] = x;
+          arr[(vrem + 1) % size] = x;
           ++last;
       }
     }
