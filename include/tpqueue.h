@@ -15,9 +15,9 @@ class TPQueue {
         throw std::string("Full!");
       } else {
           while ((last >= first) && (arr[(++last) % size].prior < x.prior)) {
-              arr[(++last) % size] = arr[last % size];
+              arr[(last + 2) % size] = arr[++last % size];
           }
-          arr[(++last) % size] = x;
+          arr[(last + 2) % size] = x;
       }
     }
     T pop() {
