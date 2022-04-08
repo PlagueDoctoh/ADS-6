@@ -14,7 +14,7 @@ class TPQueue {
       if (last - first >= size) {
         throw std::string("Full!");
       } else {
-          int vrem = --last;
+          int vrem = last--;
           while ((vrem >= first) && (arr[vrem % size].prior < x.prior)) {
               arr[(vrem + 1) % size] = arr[vrem % size];
               --vrem;
