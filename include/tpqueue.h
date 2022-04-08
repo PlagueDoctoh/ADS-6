@@ -11,16 +11,12 @@ class TPQueue {
  public:
     TPQueue() : first(0), last(0) {}
     void push(T x) {
-      if (last - first >= size) {
-        throw std::string("Full!");
-      } else {
-          int a = --last + 1;
-          while (((a + 1) >= first) && (arr[(a + 1) % size].prior < x.prior)) {
-              arr[a % size] = arr[a % size];
-              --a;
-          }
-          arr[a % size] = x;
+      int a = --last + 1;
+      while (((a + 1) >= first) && (arr[(a + 1) % size].prior < x.prior)) {
+        arr[a % size] = arr[a % size];
+        ++a;
       }
+      arr[a % size] = x;
     }
     T pop() {
         return arr[(first++) % size];
