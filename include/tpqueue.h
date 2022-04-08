@@ -16,10 +16,10 @@ class TPQueue {
       } else {
           int vrem = last--;
           while ((vrem >= first) && (arr[vrem % size].prior < x.prior)) {
-              arr[(++vrem) % size] = arr[vrem % size];
+              arr[(vrem++) % size] = arr[vrem % size];
               vrem--;
           }
-          arr[(++vrem) % size] = x;
+          arr[(vrem++) % size] = x;
           last++;
       }
     }
